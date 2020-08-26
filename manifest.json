@@ -1,6 +1,23 @@
 {
     "name": "Language Learner",
     "version": "1.0.0",
-    "description": "An extension to help you learn a new language",
-    "manifest_version": 2
+    "description": "An extension to help you start learning a new language.",
+    "manifest_version": 2,
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["content.js"]
+        }
+    ],
+    "permissions": [
+        "bookmarks"
+    ],
+    "browser_action": {
+        "default_title": "Start learning a new language",
+        "default_popup": "popup.html"
+    }
 }
